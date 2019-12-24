@@ -4,7 +4,7 @@ const cors = require('cors');
 const app = express();
 app.use(express.json());
 app.use(cors());
-let port = 4005;
+let port = process.env.PORT || 8080 || 4005;
 let contact = require('./Apis/contactApi');
 // let user = require('./Apis/testapi');
 let pagi = require('./Apis/pagination');
