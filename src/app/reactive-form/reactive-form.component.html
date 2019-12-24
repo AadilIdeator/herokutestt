@@ -1,0 +1,73 @@
+
+
+
+<div class="container">
+    
+    <div class="row">
+        
+        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+            
+
+            <form [formGroup]="userform"(ngSubmit)="AddUser(userform.value)" class="form-horizontal" role="form">
+                <div class="form-group">
+                    <legend>Registration Form</legend>
+                </div>
+
+                <div class="form-group"
+                [class.has-error]="!userform.get('username').valid
+                && userform.get('username').touched"
+                
+                [class.has-success]="userform.get('username').valid">
+                
+                    <input type="text" class="form-control"
+                    placeholder="enter your username"
+                    formControlName="username"
+                    >
+                        <div class="alert alert-danger"
+                            *ngIf="userform.get('username').hasError('required')
+                            && userform.get('username').touched">
+                            username is required*
+                        </div>
+                        <div class="alert alert-danger"
+                            *ngIf="userform.get('username').hasError('minlength')
+                            && userform.get('username').touched">
+                            username should be minimum 5 character long *
+                        </div>
+                </div>
+
+                <div class="form-group">
+                    <input type="email" class="form-control"
+                    placeholder="enter your email"
+                    formControlName="email">
+                </div>
+
+                <div class="form-group">
+                    <input type="contactNo" class="form-control"
+                    placeholder="enter your contactNo"
+                    formControlName="contactNo">
+                </div>
+                
+                <div class="form-group">
+                    <input type="password" class="form-control"
+                    placeholder="enter your password"
+                    formControlName="password">
+                </div>
+                
+                
+                
+        
+                <div class="form-group">
+                    <div class="col-sm-10 col-sm-offset-2">
+                        <button type="submit" class="btn btn-primary"
+                        >Submit</button>
+                    </div>
+                </div>
+        </form>
+
+        </div>
+        
+    </div>
+    
+</div>
+
+

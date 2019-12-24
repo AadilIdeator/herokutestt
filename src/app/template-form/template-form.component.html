@@ -1,0 +1,60 @@
+<p>template-form works!</p>
+
+<div class="container">
+    
+    <div class="row">
+        
+        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+            
+            <form #F= "ngForm"  (ngSubmit)="adduser(F.value)" class="form-horizontal" role="form">
+                <div class="form-group">
+                    <legend>Form title</legend>
+                </div>
+        
+                <div class="from-group">
+                    <input type="username" class="form-control"
+                    name="username"
+                    placeholder="enter your username"
+                    [(ngModel)]="model.username"
+                    #username = "ngModel"
+                    required
+                    minlength="5">
+
+                    <div class="alret alert-danger"
+                    *ngIf="username.errors && username.touched">
+                
+                    <div class="alret alert-danger"
+                    *ngIf="username.errors.required">username is required</div>
+                
+                </div>
+                   
+                </div>
+
+                <div class="from-group">
+                    <input type="password" class="form-control"
+                    name="userpasswrod"
+                    placeholder="enter your password"
+                    [(ngModel)]="model.userpasswrod">
+                </div>
+
+                <div class="from-group">
+                    <input type="email" class="form-control"
+                    name="useremail"
+                    placeholder="enter your email"
+                    [(ngModel)]="model.useremail">
+                </div>
+        
+                <div class="form-group">
+                    <div class="col-sm-10 col-sm-offset-2">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+        </form>
+        
+
+        </div>
+        
+    </div>
+    
+</div>
+
